@@ -1,27 +1,17 @@
 import Card from '../components/card.jsx'
+import getImages from './api/aws.js';
 
-function getImages() {
-  const s3url = ''
-  const bucket = new AWS.S3( { params: { Bucket:'' } } );
-  bucket.listObjects((err, data) => {
-    if(err) {
-      console.log (err);
-      return
-    }
-    else {
-      console.log(data.Contents);
-      return data.Contents;
-    }
-  })
-}
+export default async function Page() {
 
-export default function Page() {
+  let images = await getImages();
+  
+  // console.log(images)
 
-  const images = getImages();
 
   const cards = [];
-  for (let i = 0; i < 10; i++) {
-    cards.push(<Card key={`key_${i}`} />)
+  for (let i of images) {
+    // console.log(`https://gobi-img-upload-thumbnail.s3.us-east-2.amazonaws.com/${i}`)
+    cards.push(<Card key={`key_${i}`} url={`https://gobi-img-upload-thumbnail.s3.us-east-2.amazonaws.com/${i}`} />)
   }
 
   return (
