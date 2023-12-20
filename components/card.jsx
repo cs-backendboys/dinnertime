@@ -7,7 +7,7 @@ const Card = ({ url }) => {
       {/* <h1 className='w-full px-3 py-1 text-sm text-left font-bold'>location</h1> */}
 
       {/** Card Image */}
-      <div className='w-4/5 aspect-square m-3 border flex flex-col items-center justify-center font-thin'>
+      <div className='aspect-square my-3 border-0 flex flex-col items-center justify-center font-thin'>
         <img src={url} className='border-0'/>
       </div>
 
@@ -21,7 +21,7 @@ const Card = ({ url }) => {
           <button className='h-6 mx-2 text-sm rounded border'>{'<3'}</button>
         </div> */}
         <div className='mb-2 -mt-2'>
-          <button className='xs:px-12 px-3 mx-2 text-sm text-gray-800 font-thin'>view full image</button>
+          <button className='xs:px-12 px-3 mx-1 text-sm text-gray-800 font-thin'>view full image</button>
         </div>
       </div>
 
